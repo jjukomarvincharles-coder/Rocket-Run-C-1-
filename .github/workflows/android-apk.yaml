@@ -1,0 +1,59 @@
+name: Build Rocket Run Android APK
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Install dependencies
+        run: npm install
+      - name: Verify Capacitor package entry points
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          for (const name of ['@capacitor/core', '@capacitor/app']) {
+            const dir = path.join(process.cwd(), 'node_modules', ...name.split('/'));
+            const meta = JSON.parse(fs.readFileSync(path.join(dir, 'package.json'), 'utf8'));
+            const entry = (meta.module || meta.browser || 'dist/index.js').replace(/^\.\//, '');
+            const full = path.join(dir, entry);
+            console.log(`${name}@${meta.version}: ${entry} ${fs.existsSync(full) ? 'OK' : 'MISSING'}`);
+            if (!fs.existsSync(full)) process.exitCode = 1;
+          }
+          NODE
+      - name: Build game and copy offline dependencies
+        run: |
+          npm run build
+          npm run verify
+          npm run vendor
+      - name: Generate Android project (only when not already committed)
+        run: |
+          if [ ! -d android ]; then
+            npx cap add android
+          fi
+      - name: Sync Capacitor and apply game identity, icon and orientation
+        run: |
+          npx cap sync android
+          npm run android:prepare
+      - name: Build debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rocket-run-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
