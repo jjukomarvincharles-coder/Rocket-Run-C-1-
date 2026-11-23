@@ -1,0 +1,31 @@
+/* ===== CLEAN HUD v9 — phone-first: fewer items, more view ===== */
+#xpPanel,#radarLabel,#camSelector{display:none!important;}
+.ck-canopy-readout,.ck-side-readout{display:none!important;}
+#shieldEdge{position:absolute;inset:0;opacity:0;transition:opacity .25s;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%,transparent 58%,rgba(58,233,255,.28) 86%,rgba(126,242,255,.55) 100%);mix-blend-mode:screen;}
+.tl{min-width:0;gap:4px;top:calc(8px + var(--safe-t));left:calc(10px + var(--safe-l));}
+.panel{padding:3px 10px;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;
+  background:linear-gradient(180deg,rgba(6,22,40,.5),rgba(2,10,22,.34));}
+#scorePanel{min-width:0;} #scorePanel .label{display:none;} #scorePanel .value{font-size:19px;letter-spacing:1.5px;}
+#scorePanel .best{font-size:8px;opacity:.65;}
+#hullPanel,#enginePanel{min-width:0;width:116px;padding:2px 8px;}
+#hullPanel .bar-label,#enginePanel .bar-label,#hullPanel .bar-val,#enginePanel .bar-val{display:none;}
+.tr{top:calc(8px + var(--safe-t));right:calc(10px + var(--safe-r));gap:5px;}
+#fuelPanel{min-width:0;width:150px;padding:2px 10px;} #fuelPanel .label{display:none;} #fuelPanel .fhead{justify-content:flex-end;margin-bottom:2px;}
+#fuelPanel .ftime{font-size:13px;}
+#multPanel{min-width:0;padding:1px 10px;} #multPanel .label{display:none;} #multPanel .value{font-size:15px;}
+.tc{top:calc(8px + var(--safe-t));gap:8px;} .icon-btn{width:38px;height:32px;opacity:.72;}
+#stick{width:min(22vw,126px);height:min(22vw,126px);opacity:.55;left:calc(14px + var(--safe-l));bottom:calc(14px + var(--safe-b));}
+#abilities{gap:6px;right:calc(12px + var(--safe-r));bottom:calc(12px + var(--safe-b));}
+.ab-grid{gap:5px;} .ab{width:min(9.5vw,46px);height:min(9.5vw,46px);opacity:.7;} .ab .nm{display:none;} .ab .ct{font-size:9px;top:1px;right:3px;}
+.ab.big{width:min(13vw,64px);height:min(13vw,64px);opacity:.85;} .ab.big .nm{display:block;font-size:6px;}
+#radarPanel{width:min(18vw,78px);height:min(18vw,78px);opacity:0;transition:opacity .4s;pointer-events:none;}
+#radarPanel.show{opacity:.85;}
+#ambLeft{bottom:calc(150px + var(--safe-b));left:calc(14px + var(--safe-l));}
+.amb-card{padding:4px 9px;} .amb-card .amb-title{font-size:8px;} .amb-card .amb-text{font-size:8px;}
+#fleetWarning{top:22%;} #fleetWarning .fw-title{font-size:clamp(13px,2.8vw,22px);} #fleetWarning .fw-sub{font-size:9px;letter-spacing:3px;}
+@media (pointer:coarse),(max-height:620px){ #ambRight{display:none!important;} }
+@media (max-height:430px){
+ .cockpit-dash{height:19%;padding-top:2px;padding-bottom:2px;} .cockpit-window{inset:1.5% 1.2% 19%;}
+ .cockpit-dial{width:40px;height:40px;} .ck-speedline strong{font-size:15px;}
+}

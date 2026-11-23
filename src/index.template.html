@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<meta name="theme-color" content="#02040c" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Rocket Run" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="description" content="ROCKET RUN — an endless 3D space survival runner." />
+<title>ROCKET RUN</title>
+<link rel="icon" type="image/png" sizes="512x512" href="./assets/icons/rocket-run-icon-512.png" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="apple-touch-icon" sizes="512x512" href="./assets/icons/rocket-run-icon-512.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>/*@CSS@*/</style>
+<script>
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
+</script>
+</head>
+<body><!--@HTML@--><script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+  "@capacitor/core": "https://cdn.jsdelivr.net/npm/@capacitor/core@6.1.0/dist/index.js",
+  "@capacitor/app": "https://cdn.jsdelivr.net/npm/@capacitor/app@6.0.0/dist/esm/index.js"
+}}
+</script>
+
+<script type="module">/*@JS@*/</script>
+</body>
+</html>

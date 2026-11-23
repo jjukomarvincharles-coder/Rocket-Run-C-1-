@@ -1,0 +1,11 @@
+/* chain bonus chip + encounter progress bar (small, top-centre, out of the way) */
+#chainDisplay{position:absolute;top:calc(52px + var(--safe-t));left:50%;transform:translateX(-50%) scale(.85);opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s;font-family:'Orbitron',monospace;color:#ffd45a;text-shadow:0 0 12px rgba(255,200,80,.8);white-space:nowrap;}
+#chainDisplay.on{opacity:1;transform:translateX(-50%) scale(1);}
+#chainDisplay span{font-size:18px;font-weight:900;margin-right:6px;} #chainDisplay small{font-size:8px;letter-spacing:3px;opacity:.8;}
+#encounterBar{position:absolute;top:calc(48px + var(--safe-t));left:50%;transform:translateX(-50%);width:min(44vw,300px);opacity:0;pointer-events:none;transition:opacity .3s;
+  font-family:'Orbitron',monospace;text-align:center;}
+#encounterBar.on{opacity:1;}
+#encName{font-size:9px;letter-spacing:3px;color:#ffc95a;margin-bottom:3px;}
+.enc-track{height:5px;border:1px solid rgba(255,201,90,.55);background:rgba(0,0,0,.4);}
+#encFill{height:100%;width:0%;background:linear-gradient(90deg,#d98a1f,#ffd45a);box-shadow:0 0 8px rgba(255,200,80,.7);}

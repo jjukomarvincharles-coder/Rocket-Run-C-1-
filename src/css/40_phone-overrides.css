@@ -1,0 +1,18 @@
+/* phones: slim centre-only dash so the joystick/ability buttons and the view stay clear */
+@media (max-height:480px),(pointer:coarse){
+ .cockpit-dash{left:23%;right:23%;width:auto;height:17%;display:flex;justify-content:center;align-items:center;padding:0 2%;
+  clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);}
+ .ck-module{display:none!important;}
+ .cockpit-window{inset:1.5% 1.2% 17%;}
+ .cockpit-strut{width:6%!important;opacity:.55!important;}
+ .ck-headline,.cockpit-accent{display:none!important;}
+ .cockpit-center{padding:2px 6px;}
+ .ck-speedline strong{font-size:14px;} .ck-shieldline{font-size:7px;}
+}
+#perfHud{position:fixed;left:8px;top:50%;z-index:90;font:10px/1.3 monospace;color:#9ff5ff;background:rgba(0,0,0,.6);padding:3px 7px;display:none;pointer-events:none;border:1px solid rgba(58,233,255,.35)}
+
+/* v11: screen effects render on the GPU (ScreenFX); the old full-screen DOM layers stay in the page but hidden */
+#fxOverlay,#boostWarp,#boostFlash,#shieldEdge{display:none!important;}
+#perfHud{left:50%;top:auto;bottom:4px;transform:translateX(-50%);white-space:nowrap;}
+body.lite #hud *{text-shadow:none!important;filter:none!important;}
+body.lite .popup{animation:none!important;}

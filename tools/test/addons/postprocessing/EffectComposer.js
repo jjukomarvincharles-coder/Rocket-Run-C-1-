@@ -1,0 +1,1 @@
+export class EffectComposer{constructor(renderer){this.renderer=renderer;this.passes=[];this.renderTarget1={samples:0,dispose(){}};this.renderTarget2={samples:0,dispose(){}};}addPass(p){this.passes.push(p);}render(){window.__frames=(window.__frames||0)+1;}setSize(){}dispose(){}}
